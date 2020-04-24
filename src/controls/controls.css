@@ -1,0 +1,27 @@
+button {
+  float: left;
+  margin-right: 5px;
+}
+
+.control {
+  float: none;
+  margin-top: 5px;
+  overflow: auto;
+}
+
+.time-slider {
+  float: left;
+  margin-left: 10px;
+}
+
+.label {
+  float: left;
+  margin-right: 5px;
+}
+
+.info {
+  float: left;
+  padding: 4px;
+  font-size: 18px;
+  margin-right: 5px;
+}
