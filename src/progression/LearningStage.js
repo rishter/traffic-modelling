@@ -102,6 +102,9 @@ const LearningStage = ({steps, currentStepIndex, decrementCurrentStep, increment
   }
 
   const arrangeCars = (num) => {
+    if (num > numCells) {
+      return;
+    }
     let carBuilder = new Array(numCells).fill(null)
     let carsAdded = 0;
     let index = 0;
