@@ -5,7 +5,7 @@ import steps from './steps.js'
 import './App.css';
 
 function App() {
-  let [currentStepIndex, setCurrentStepIndex] = useState(7)
+  let [currentStepIndex, setCurrentStepIndex] = useState(0)
 
   const decrementCurrentStep = () => {
     setCurrentStepIndex(Math.max(currentStepIndex-1, 0))
