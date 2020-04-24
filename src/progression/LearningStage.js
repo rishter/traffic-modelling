@@ -42,6 +42,10 @@ const LearningStage = ({steps, currentStepIndex, decrementCurrentStep, increment
   let [initialCars, setInitialCars] = useState(initialCarBuilder)
 
   useEffect(() => {
+    stopTime()
+  }, [stepByStep])
+
+  useEffect(() => {
     arrangeCars(numCars)
   }, [numCars])
 

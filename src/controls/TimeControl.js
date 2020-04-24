@@ -9,7 +9,7 @@ const TimeControl = ({ time, playTime, stopTime, isPlaying, incrementTime,
     <p className="info">Time: {time}</p>
     { stepByStep ?
       <Button active={true} intent={Intent.SUCCESS} disabled={time >= maxTime}
-      icon={IconNames.STEP_FORWARD} text="Increment time 1 step"
+      icon={IconNames.STEP_FORWARD} text="Increment Time"
       onClick={incrementTime} /> :
       isPlaying ?
       <Button active={true} intent={Intent.WARNING}
