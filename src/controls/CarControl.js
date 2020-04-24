@@ -14,7 +14,7 @@ const CarControl = ({ maxVelocity, setMaxVelocity, numCars, arrangeCars,
     </Label>
     { showCarNumber &&
       <Label className="label">
-        Number of Cars
+        Number of Cars / Density
         <NumericInput value={numCars}
           onValueChange={arrangeCars}
           allowNumericCharactersOnly={true}
