@@ -31,7 +31,7 @@ const getHSLAColor = (h, s, l, a) => {
 }
 
 const getRandomRed = () => {
-  return _getRandomColor([0, 30], [90, 100], [50, 70], [1, 1]).hslaValue
+  return _getRandomColor([0, 30], [90, 100], [30, 50], [1, 1]).hslaValue
 }
 
 
@@ -39,14 +39,26 @@ const windows = [[50, 70], [230, 250], [70, 90], [210, 230], [90, 110], [190, 21
                  [110, 130], [170, 190], [130, 150], [150, 170]]
 let windowIndex = 0;
 
-const getRandomColor = () => {
+const __getRandomColor = () => {
   if (windowIndex === windows.length-1) {
     windowIndex = 0
   } else {
     windowIndex++
   }
 
-  return _getRandomColor(windows[windowIndex], [90, 100], [50, 70], [1, 1]).hslaValue
+  return _getRandomColor(windows[windowIndex], [90, 100], [30, 50], [1, 1]).hslaValue
+}
+
+const cols = ["#9E2B0E", "#1F4B99", "#A67908", "#1D7324"]
+let colIndex =0
+const getRandomColor = () => {
+  // this is actually getNextColor but this is a last-minute change. Would refactor properly in production
+  if (colIndex === cols.length-1) {
+    colIndex = 0
+  } else {
+    colIndex++
+  }
+  return cols[colIndex]
 }
 
 export {

@@ -114,8 +114,8 @@ export default [
   {
     id: '6',
     title: 'A Jam is Born',
-    texts: [`Ask yourself, why did the cars stop moving? If you reduce either the density or the probability of slowing down, you can probably get the traffic jam to clear up. Researchers have been able to graph the relationship between density, slowdown probability _p_, and the expected velocity of different cars to predict how to prevent a complete standstill from happening.`, `See if you notice how once a traffic jam begins, it doesn't just go away immediately. Instead, it seems to travel around the road, with cars bunching up as they encounter the jam. This is called the ***shockwave theory***, and some models call the travelling traffic jam a ***jamiton***.`, `If you hit play with 15 cars and a 0.5 slowdown probability, you're very likely to see it! If not, play around with the controls and see if you can make it happen. These drivers do behave unpredictably, after all.`],
-    initialCarIndices: new Array(15),
+    texts: [`Ask yourself, why did the cars stop moving? If you reduce either the density or the probability of slowing down, you can probably get the traffic jam to clear up. Researchers have been able to graph the relationship between density, slowdown probability _p_, and the expected velocity of different cars to predict how to prevent a complete standstill from happening.`, `See if you notice how once a traffic jam begins, it doesn't just go away immediately. Instead, it seems to travel around the road, with cars bunching up as they encounter the jam. This is called the ***shockwave theory***, and some models call the travelling traffic jam a ***jamiton***.`, `If you hit play with 18 cars and a 0.7 slowdown probability, you're very likely to see it! If not, play around with the controls and see if you can make it happen. These drivers do behave unpredictably, after all.`],
+    initialCarIndices: new Array(18),
     components: ['TimeControl', 'UIControl', 'CarControl'],
     timeOptions: {
       showSlider: true,
@@ -127,7 +127,7 @@ export default [
     carOptions: {
       defaultMaxVelocity: 5,
       showCarNumber: true,
-      slowdownProbability: 0.5
+      slowdownProbability: 0.7
     },
     interactiveOptions: {
       variableVelocity: true,
@@ -140,12 +140,12 @@ export default [
     id: '7',
     title: 'Time is a Flat Circle... again',
     texts: [`So, now we've seen how to change the slowdown probability, number of cars, and maximum velocity of our system and see whether or not traffic jams form. But there's one more powerful tool we can use to better understand the relationship between these things and traffic jams: ***abstraction***! You may not fully understand what this term means, but perhaps this exercise will help you.`, `In this screen, we'll still have the options to change the behaviors of our drivers and cars, but there is no longer a control for time. That's because our visualization on the right has ***abstracted over time***! Specifically, we are able to map all positions of all cars over time on this graph, where the (x) axis represents each step of time, and the (y) axis represents the positions on the road.`, `_Note for reviewers: This is an extremeley rudimentary feature, but I was ***really*** excited about how easily I was able to put it together given the existing data structures. Think of this more as a demo inside the demo._`],
-    initialCarIndices: new Array(15),
+    initialCarIndices: new Array(18),
     components: ['CarControl'],
     carOptions: {
       defaultMaxVelocity: 5,
       showCarNumber: true,
-      slowdownProbability: 0.5
+      slowdownProbability: 0.7
     },
     interactiveOptions: {
       variableVelocity: true,
@@ -159,7 +159,7 @@ export default [
     id: '8',
     title: 'Congrats!',
     texts: [`Well done! You've learned about Cellular Automaton Modelling to model traffic, and even caused your own traffic jams! There's a lot more to learn, but you deserve a pat on the back. Here are the final controls on the simulation if you'd like to play around. Thank you for playing!`],
-    initialCarIndices: new Array(15),
+    initialCarIndices: new Array(18),
     components: ['TimeControl', 'UIControl', 'CarControl'],
     timeOptions: {
       showSlider: true,
@@ -171,7 +171,7 @@ export default [
     carOptions: {
       defaultMaxVelocity: 5,
       showCarNumber: true,
-      slowdownProbability: 0.5
+      slowdownProbability: 0.7
     },
     interactiveOptions: {
       variableVelocity: true,

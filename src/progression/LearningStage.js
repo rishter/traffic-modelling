@@ -14,12 +14,14 @@ const LearningStage = ({steps, currentStepIndex, decrementCurrentStep, increment
 
 
   const initialStepByStep = currentStep.uiOptions && currentStep.uiOptions.defaultStepByStep
+  const initialMaxVelocity = currentStep.carOptions ? currentStep.carOptions.defaultMaxVelocity : 1
+  const initialNumCars = currentStep.initialCarIndices.length
+  const initialSlowdownProbability = currentStep.carOptions ? currentStep.carOptions.slowdownProbability : null
 
   let [stepByStep, setStepByStep] = useState(initialStepByStep)
-
-  let [maxVelocity, setMaxVelocity] = useState(currentStep.carOptions ? currentStep.carOptions.defaultMaxVelocity : 1)
-  let [numCars, setNumCars] = useState(currentStep.initialCarIndices.length)
-  let [slowdownProbability, setSlowdownProbability] = useState(currentStep.carOptions ? currentStep.carOptions.slowdownProbability : null)
+  let [maxVelocity, setMaxVelocity] = useState(initialMaxVelocity)
+  let [numCars, setNumCars] = useState(initialNumCars)
+  let [slowdownProbability, setSlowdownProbability] = useState(initialSlowdownProbability)
 
   // These are for personal testing, might become options later
   const numCells = 50
@@ -52,7 +54,8 @@ const LearningStage = ({steps, currentStepIndex, decrementCurrentStep, increment
   // what needs to change when the step changes
   useEffect(() => {
     stopTime()
-    setMaxVelocity(currentStep.carOptions ? currentStep.carOptions.defaultMaxVelocity : 1)
+    setMaxVelocity(initialMaxVelocity)
+    setSlowdownProbability(initialSlowdownProbability)
     setStepByStep(initialStepByStep)
     resetTime(true)
   }, [currentStepIndex])
@@ -64,7 +67,7 @@ const LearningStage = ({steps, currentStepIndex, decrementCurrentStep, increment
     if (isPlaying && time < maxTime) {
       interval = setInterval(() => {
           incrementTime()
-      }, 80)
+      }, 120)
     } else if (time === maxTime || !isPlaying){
       clearInterval(interval)
       if (isPlaying) {
