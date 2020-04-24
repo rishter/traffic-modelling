@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Navbar from './Nav.js'
+import LearningStage from './progression/LearningStage.js'
+import steps from './steps.js'
 import './App.css';
 
 function App() {
+  let [currentStepIndex, setCurrentStepIndex] = useState(0)
+
+  const decrementCurrentStep = () => {
+    setCurrentStepIndex(Math.max(currentStepIndex-1, 0))
+  }
+
+  const incrementCurrentStep = () => {
+    setCurrentStepIndex(Math.min(currentStepIndex+1, steps.length-1))
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === "ArrowUp") {
+      decrementCurrentStep()
+    } else if (e.key === "ArrowDown") {
+      incrementCurrentStep()
+    }
+  }
+
+  let progress = currentStepIndex*1.0/(steps.length-1)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" onKeyDown={handleKeyPress} tabIndex="0"> { /*bp3-dark*/ }
+      <Navbar progress={progress} />
+      <LearningStage steps={steps}
+        currentStepIndex={currentStepIndex}
+        decrementCurrentStep={decrementCurrentStep}
+        incrementCurrentStep={incrementCurrentStep} />
     </div>
   );
 }
