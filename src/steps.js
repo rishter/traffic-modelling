@@ -48,7 +48,7 @@ export default [
   },
   {
     id: '3',
-    title: 'Enter...driver!',
+    title: 'Enter... driver!',
     texts: [`So far, we've been focusing on the one car, but that will change soon!`, `First, though, let's simulate the behavior of a driver behind the wheel of our car. We'll use the concept of ***velocity*** to discuss this. Maybe you're more used to the term ***speed***, but for our purposes, they are the same.`, `Normally, we might represent velocity in terms of *miles per hour* or *kilometers per hour*. Here, though, there are neither miles/meters nor are there hours. So, let's say that our driver drives at a speed of 1 *cell per step*, or 1 c/s.`, `How might the driver respond to being alone on this freeway? If you drive, you might have a good idea 😉. No use going one step at a time when you're the only one on the road, right? We'll introduce the first of our car's special features, a velocity that changes over time, or ***accelerates***.`, `Let's say that the driver sees that the road is clear, so they pump the gas. Every step, the car's velocity increases by 1, which means that it travels 1 more cell than it did in the previous step.`, `For example, if at first the car moves at 1 c/s—it does!—it will travel at 2 c/s the following step.`, `Realistically, drivers don't accelerate forever! Our driver is safe, and knows their limits. So, we'll define our car's ***maximum velocity***—the speed at which the driver no longer accelerates.`, `We've made this a control as well, so feel free to play with it and see how quickly the car gets to its maximum velocity. If you want to see this play out a few times, you can reset the timeline to see how the car accelerates with different maximum velocities. Even when this value seems realistic, it can get crazy, right? Well, that's why...`],
     initialCarIndices: [0],
     components: ['TimeControl', 'UIControl', 'CarControl'],
@@ -138,6 +138,25 @@ export default [
   },
   {
     id: '7',
+    title: 'Time is a Flat Circle... again',
+    texts: [`So, now we've seen how to change the slowdown probability, number of cars, and maximum velocity of our system and see whether or not traffic jams form. But there's one more powerful tool we can use to better understand the relationship between these things and traffic jams: ***abstraction***! You may not fully understand what this term means, but perhaps this exercise will help you.`, `In this screen, we'll still have the options to change the behaviors of our drivers and cars, but there is no longer a control for time. That's because our visualization on the right has ***abstracted over time***! Specifically, we are able to map all positions of all cars over time on this graph, where the (x) axis represents each step of time, and the (y) axis represents the positions on the road.`, `_Note for reviewers: This is an extremeley rudimentary feature, but I was ***really*** excited about how easily I was able to put it together given the existing data structures. Think of this more as a demo inside the demo._`],
+    initialCarIndices: new Array(15),
+    components: ['CarControl'],
+    carOptions: {
+      defaultMaxVelocity: 5,
+      showCarNumber: true,
+      slowdownProbability: 0.5
+    },
+    interactiveOptions: {
+      variableVelocity: true,
+      slowdown: true,
+      showJamCars: false,
+      startFast: false,
+      showGraph: true
+    }
+  },
+  {
+    id: '8',
     title: 'Congrats!',
     texts: [`Well done! You've learned about Cellular Automaton Modelling to model traffic, and even caused your own traffic jams! There's a lot more to learn, but you deserve a pat on the back. Here are the final controls on the simulation if you'd like to play around. Thank you for playing!`],
     initialCarIndices: new Array(15),

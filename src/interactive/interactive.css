@@ -1,0 +1,27 @@
+.roadway-container {
+  border: 1px solid grey;
+}
+
+.car {
+  background-size: 11px 22px;
+}
+
+svg.graph {
+  height: 500px;
+  width: 500px;
+  border: 1px solid grey;
+}
+
+svg.graph .cell {
+  fill: #eee;
+  /* stroke: #fff; */
+  /* stroke-width: 3px; */
+  border: 1px solid grey;
+}
+
+svg.graph .filled {
+  fill: black;
+  /* stroke: #fff; */
+  /* stroke-width: 3px; */
+  border: 1px solid grey;
+}

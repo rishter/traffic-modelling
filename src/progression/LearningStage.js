@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import LearningStep from './LearningStep.js'
-import RoadwayInteractive from '../roadway/RoadwayInteractive.js'
+import RoadwayInteractive from '../interactive/RoadwayInteractive.js'
 import { getRandomColor } from '../color/randomColor.js'
 
 // Holds all the information for learning

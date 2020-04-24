@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import RoadwayUI from './RoadwayUI.js'
+import Graph from './Graph.js'
 import { getRandomRed } from '../color/randomColor.js'
-import './roadway.css'
+import './interactive.css'
 
 
 const RoadwayInteractive = ({ numCells, maxTime, currentStep, showGrid, time, resetTime,
-    initialCars, maxVelocity, variableVelocity, slowdownProbability, slowdown, showJamCars }) => {
+    initialCars, maxVelocity, variableVelocity,
+    slowdownProbability, slowdown, showJamCars, showGraph }) => {
   const [currentTimeMap, setCurrentTimeMap] = useState(new Array(maxTime).fill([]))
 
   useEffect(() => {
@@ -79,9 +81,8 @@ const RoadwayInteractive = ({ numCells, maxTime, currentStep, showGrid, time, re
     return carMapOverTime
   }
 
-  return (
-    <RoadwayUI showGrid={showGrid} cars={currentTimeMap[time]} numCells={numCells} />
-  )
+  return showGraph ? <Graph timeMap={currentTimeMap} />
+    : <RoadwayUI showGrid={showGrid} cars={currentTimeMap[time]} numCells={numCells} />
 }
 
 export default RoadwayInteractive
