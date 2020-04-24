@@ -119,12 +119,6 @@ const LearningStage = ({steps, currentStepIndex, decrementCurrentStep, increment
     return setInitialCars(carBuilder)
   }
 
-  let stepProps = {
-    step: currentStep,
-    decrementCurrentStep,
-    incrementCurrentStep
-  }
-
   let timeProps = {
     time,
     playTime,
@@ -168,7 +162,7 @@ const LearningStage = ({steps, currentStepIndex, decrementCurrentStep, increment
   }
 
   return <div className="main">
-      <LearningStep stepProps={stepProps} timeProps={timeProps} uiProps={uiProps} carProps={carProps} />
+      <LearningStep step={currentStep} timeProps={timeProps} uiProps={uiProps} carProps={carProps} />
       <div className="divider"/>
       <RoadwayInteractive {...interactiveOptions} />
   </div>

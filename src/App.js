@@ -16,9 +16,9 @@ function App() {
   }
 
   const handleKeyPress = (e) => {
-    if (e.key === "ArrowUp") {
+    if (e.key === "ArrowLeft") {
       decrementCurrentStep()
-    } else if (e.key === "ArrowDown") {
+    } else if (e.key === "ArrowRight") {
       incrementCurrentStep()
     }
   }
@@ -27,7 +27,9 @@ function App() {
 
   return (
     <div className="App" onKeyDown={handleKeyPress} tabIndex="0"> { /*bp3-dark*/ }
-      <Navbar progress={progress} />
+      <Navbar progress={progress}
+        decrementCurrentStep={decrementCurrentStep}
+        incrementCurrentStep={incrementCurrentStep} />
       <LearningStage steps={steps}
         currentStepIndex={currentStepIndex}
         decrementCurrentStep={decrementCurrentStep}
